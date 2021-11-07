@@ -6,7 +6,7 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.scave.lsp4a"
+        applicationId "io.github.scave.lsp4a"
         minSdk 19
         targetSdk 30
         versionCode 1

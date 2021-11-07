@@ -1,4 +1,4 @@
-package com.scave.lsp4a;
+package io.github.scave.lsp4a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
