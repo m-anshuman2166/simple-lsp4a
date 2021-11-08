@@ -3,18 +3,18 @@ package io.github.scave.lsp4a.model.workspace;
 import java.util.List;
 
 /**
- * 工程文件夹变更信息类
+ * The class store the information of workspace folder changes
  * @author Scave
  */
-public class WorkspaceFolderChanged {
+public class WorkspaceFolderChange {
 
     /**
-     * 增加的文件夹列表
+     * The folders which were added
      */
     public List<WorkspaceFolder> addedFolderList;
 
     /**
-     * 移除的文件夹列表
+     * The folders which were removed
      */
     public List<WorkspaceFolder> removedFolderList;
 

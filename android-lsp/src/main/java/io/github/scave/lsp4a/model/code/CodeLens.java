@@ -1,18 +1,18 @@
 package io.github.scave.lsp4a.model.code;
 
-import com.tiecode.protocol.lang.model.common.Range;
+import io.github.scave.lsp4a.model.common.Range;
 
 /**
- * 代码长度信息类
+ * The class for storing information about code
  * @author Scave
  */
 public class CodeLens {
     /**
-     * 代码区域范围
+     * The range of code
      */
     public Range range;
     /**
-     * 代码数据
+     * The data(text) of code
      */
     public String data;
 

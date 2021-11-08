@@ -1,14 +1,14 @@
 package io.github.scave.lsp4a.model.code;
 
-import com.tiecode.protocol.lang.model.document.TextDocumentIdentifier;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 
 /**
- * 代码长度参数信息类
+ * The class for storing params about length of code while language client posted
  * @author Scave
  */
 public class CodeLensParams {
     /**
-     * 文本文档
+     * The only identifier of text document
      */
     public TextDocumentIdentifier document;
 

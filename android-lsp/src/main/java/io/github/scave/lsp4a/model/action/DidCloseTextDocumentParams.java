@@ -1,11 +1,14 @@
 package io.github.scave.lsp4a.model.action;
 
-import com.tiecode.protocol.lang.model.document.TextDocumentIdentifier;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 
 /**
- * 已关闭文本文档参数信息类
+ * The class for storing params about a text document which was closed
  * @author Scave
  */
 public class DidCloseTextDocumentParams {
+    /**
+     * The only identifier of  the text document(URI)
+     */
     public TextDocumentIdentifier document = new TextDocumentIdentifier();
 }

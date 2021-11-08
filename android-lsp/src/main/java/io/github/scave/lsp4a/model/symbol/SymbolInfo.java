@@ -1,31 +1,35 @@
 package io.github.scave.lsp4a.model.symbol;
 
-import com.tiecode.protocol.lang.model.common.Location;
+import io.github.scave.lsp4a.model.common.Location;
 
 /**
- * 文档中代码的单位信息
+ * The class for storing information about a symbol
+ * In fact, the symbol maybe a file, namespace, class, field and so on...
  * @author Scave
  */
 public class SymbolInfo {
     /**
-     * 符号文本
+     * The name of the symbol
      */
     public String name;
     /**
-     * 符号类型
+     * The kind of the symbol
+     * @see SymbolKind
      */
     public int kind;
     /**
-     * 是否已经为过时API
+     * Identify whether the symbol was deprecated
      */
     public boolean deprecated;
     /**
-     * 定位
+     * The location of the symbol
+     * It contains the URI and the range
+     * @see Location
      */
     public Location location;
 
     /**
-     * 容器名称
+     * The name of the symbol's container,such as a namespace for class, a class for variable, a folder for file
      */
     public String containerName;
 }

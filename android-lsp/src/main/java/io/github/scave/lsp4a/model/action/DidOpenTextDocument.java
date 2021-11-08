@@ -1,9 +1,9 @@
 package io.github.scave.lsp4a.model.action;
 
-import com.tiecode.protocol.lang.model.document.TextDocumentItem;
+import io.github.scave.lsp4a.model.document.TextDocumentItem;
 
 /**
- * 已打开文本文档信息类
+ * The class for storing information about a text document which was opened
  * @author Scsave
  */
 public class DidOpenTextDocument {

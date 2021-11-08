@@ -1,12 +1,16 @@
 package io.github.scave.lsp4a.model.action;
 
-import com.tiecode.protocol.lang.model.document.TextDocumentItem;
+import io.github.scave.lsp4a.model.document.TextDocumentItem;
 
 /**
- * 已打开文本文档参数信息类
+ * The class store params about a text document which was opened while language client posted
  * @author Scave
  */
 public class DidOpenTextDocumentParams {
+    /**
+     * The information about a text document
+     * @see io.github.scave.lsp4a.model.document.TextDocumentIdentifier
+     */
     public TextDocumentItem document = new TextDocumentItem();
 
     public DidOpenTextDocumentParams() {}

@@ -1,5 +1,8 @@
 package io.github.scave.lsp4a.model.completion;
 
+/**
+ * The class define the kinds of completion item
+ */
 public class CompletionItemKind {
     public static final int TEXT = 1,
             METHOD = 2,

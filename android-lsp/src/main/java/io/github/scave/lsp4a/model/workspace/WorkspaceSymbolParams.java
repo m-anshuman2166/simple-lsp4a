@@ -1,11 +1,14 @@
 package io.github.scave.lsp4a.model.workspace;
 
 /**
- * 工作区域符号参数
+ * The class for storing params about a workspace symbol
  * @author Scave
  */
 public class WorkspaceSymbolParams {
 
+    /**
+     * The query name of symbol
+     */
     public String query;
 
     public WorkspaceSymbolParams() {

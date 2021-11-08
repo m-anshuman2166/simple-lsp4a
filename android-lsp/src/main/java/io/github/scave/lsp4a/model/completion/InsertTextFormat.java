@@ -1,4 +1,4 @@
-package io.github.scave.lsp4a.model.document.insert;
+package io.github.scave.lsp4a.model.completion;
 
 /**
  * The class define the formats of text insertion

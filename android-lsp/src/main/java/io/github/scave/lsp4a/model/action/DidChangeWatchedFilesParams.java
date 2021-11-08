@@ -1,13 +1,16 @@
 package io.github.scave.lsp4a.model.action;
 
-import com.tiecode.protocol.lang.model.file.FileChanged;
-
 import java.util.List;
 
+import io.github.scave.lsp4a.model.file.FileChange;
+
 /**
- * 文件已变更参数信息类
+ * The class store changes of a file
  * @author Scave
  */
 public class DidChangeWatchedFilesParams {
-    public List<FileChanged> changes;
+    /**
+     * The changes of a file
+     */
+    public List<FileChange> changes;
 }

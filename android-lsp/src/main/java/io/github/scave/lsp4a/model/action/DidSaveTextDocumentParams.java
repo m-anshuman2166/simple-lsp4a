@@ -1,18 +1,18 @@
 package io.github.scave.lsp4a.model.action;
 
-import com.tiecode.protocol.lang.model.document.TextDocumentIdentifier;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 
 /**
- * 已保存文本文档参数信息类
+ * The class for storing params about a text document which was saved
  * @author Scave
  */
 public class DidSaveTextDocumentParams {
     /**
-     * 文本文档
+     * The only identifier of a text document(It contains URI)
      */
     public TextDocumentIdentifier document;
     /**
-     * 文本内容
+     * The saved text of the text document
      */
     public String text;
 }

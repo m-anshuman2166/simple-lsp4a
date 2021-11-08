@@ -1,36 +1,36 @@
 package io.github.scave.lsp4a.model.code;
 
 /**
- * 代码操作类型
+ * The class define kinds of code actions
  * @author Scave
  */
 public class CodeActionKind {
     /**
-     * 快速修复
+     * The action is for quick fixing
      */
-    public static final String QUICKFIX = "QUICKFIX";
+    public static final String QUICKFIX = "quickfix";
     /**
-     * 重新操作
+     * The action is for refactor
      */
-    public static final String REFACTOR = "REFACTOR";
+    public static final String REFACTOR = "refactor";
     /**
-     * 导出接口/方法
+     * The action is for extract of refactor
      */
-    public static final String REFACTOR_EXTRACT = "REFACTOR.EXTRACT";
+    public static final String REFACTOR_EXTRACT = "refactor.extract";
     /**
-     * 内联
+     * The action is for inline variable, method and so on...
      */
-    public static final String REFACTOR_INLINE = "REFACTOR.INLINE";
+    public static final String REFACTOR_INLINE = "refactor.inline";
     /**
-     * 重写
+     * The action is for rewriting such as auto import, overriding method...
      */
-    public static final String REFACTOR_REWRITE = "REFACTOR.REWRITE";
+    public static final String REFACTOR_REWRITE = "refactor.rewrite";
     /**
-     * 源代码
+     * The action is for source
      */
-    public static final String SOURCE = "SOURCE";
+    public static final String SOURCE = "source";
     /**
-     * 重新组织导入信息
+     * The action is for organizing imports of source
      */
-    public static final String SOURCE_ORGANIZE_IMPORTS = "SOURCE.ORGANIZE_IMPORTS";
+    public static final String SOURCE_ORGANIZE_IMPORTS = "source.organize.imports";
 }

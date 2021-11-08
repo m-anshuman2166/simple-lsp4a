@@ -1,17 +1,34 @@
 package io.github.scave.lsp4a.model.code;
 
-import com.tiecode.protocol.lang.model.lint.Diagnostic;
-import com.tiecode.protocol.lang.model.workspace.WorkspaceEdit;
-
 import java.util.List;
 
+import io.github.scave.lsp4a.model.lint.Diagnostic;
+import io.github.scave.lsp4a.model.workspace.WorkspaceEdit;
+
 /**
- * 代码操作信息类
+ * The class for storing information about a action of code
  * @author Scave
  */
 public class CodeAction {
-    public String title, kind;
+    /**
+     * none of action
+     */
+    public static final CodeAction NONE = null;
+    /**
+     * The title of action
+     */
+    public String title;
+    /**
+     * The kind of action
+     * @see CodeActionKind
+     */
+    public String kind;
+    /**
+     * The diagnostics of action
+     */
     public List<Diagnostic> diagnostics;
+    /**
+     * The workspace edition of action
+     */
     public WorkspaceEdit edit;
-    public static CodeAction NONE;
 }

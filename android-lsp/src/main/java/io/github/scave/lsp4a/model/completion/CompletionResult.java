@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 代码提示结果类
+ * The class for storing completion items
  * @author Scave
  */
 public class CompletionResult {

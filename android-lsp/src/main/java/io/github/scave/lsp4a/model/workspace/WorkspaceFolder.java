@@ -3,18 +3,18 @@ package io.github.scave.lsp4a.model.workspace;
 import java.net.URI;
 
 /**
- * 工程文件夹
+ * The class for storing information about a workspace folder
  * @author Scave
  */
 public class WorkspaceFolder {
 
     /**
-     * 文件夹的URI标识
+     * The URI of folder
      */
     public URI uri;
 
     /**
-     * 文件夹名称
+     * The name of folder
      */
     public String name;
 

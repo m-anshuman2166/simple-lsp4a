@@ -1,20 +1,23 @@
 package io.github.scave.lsp4a.model.code;
 
-import com.tiecode.protocol.lang.model.common.Range;
-import com.tiecode.protocol.lang.model.document.TextDocumentIdentifier;
+import io.github.scave.lsp4a.model.common.Range;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 
 /**
- * 代码操作参数信息类
+ * The class for storing params about a code action which was posted by language client
  * @author Scave
  */
 public class CodeActionParams {
     /**
-     * 文本文档
+     * The context of code action
+     */
+    public CodeActionContext context = new CodeActionContext();
+    /**
+     * The only identifier of text document
      */
     public TextDocumentIdentifier document;
     /**
-     * 文本文档操作范围
+     * The range of action in the text document
      */
     public Range range;
-    public CodeActionContext context = new CodeActionContext();
 }

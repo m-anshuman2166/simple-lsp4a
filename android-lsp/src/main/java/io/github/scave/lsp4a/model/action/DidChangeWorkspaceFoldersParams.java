@@ -1,11 +1,11 @@
 package io.github.scave.lsp4a.model.action;
 
-import com.tiecode.protocol.lang.model.workspace.WorkspaceFolderChanged;
+import io.github.scave.lsp4a.model.workspace.WorkspaceFolderChange;
 
 /**
- * 已变更工程文件夹参数信息类
+ * The class for storing params about a workspace folder change
  * @author Scave
  */
 public class DidChangeWorkspaceFoldersParams {
-    public WorkspaceFolderChanged changed;
+    public WorkspaceFolderChange change;
 }

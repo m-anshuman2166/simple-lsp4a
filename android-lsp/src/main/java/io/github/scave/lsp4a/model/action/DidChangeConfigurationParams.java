@@ -1,9 +1,12 @@
 package io.github.scave.lsp4a.model.action;
 
 /**
- * 工程配置已发生变更参数信息类
+ * The class store params for configuration change
  * @author Scave
  */
 public class DidChangeConfigurationParams {
+    /**
+     * The change of configuration
+     */
     public String data;
 }
