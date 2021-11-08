@@ -1,20 +1,20 @@
 package io.github.scave.lsp4a.model.markup;
 
-import com.tiecode.protocol.lang.model.common.Range;
-
 import java.util.List;
 
+import io.github.scave.lsp4a.model.common.Range;
+
 /**
- * 鼠标放置标识符文本信息类
+ * The class store the information about contents which were hovered by mouse
  * @author Scave
  */
 public class Hover {
     /**
-     * 被标记文本集合
+     * The contents of hovered
      */
     public List<MarkedString> contents;
     /**
-     * 范围
+     * The range of hovered
      */
     public Range range;
 

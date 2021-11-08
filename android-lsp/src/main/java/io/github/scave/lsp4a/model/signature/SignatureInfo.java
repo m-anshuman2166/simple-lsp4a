@@ -1,25 +1,29 @@
 package io.github.scave.lsp4a.model.signature;
 
-import com.tiecode.protocol.lang.model.markup.MarkupContent;
-
 import java.util.List;
 
+import io.github.scave.lsp4a.model.markup.MarkupContent;
+
 /**
- * 签名信息（函数/方法等）
+ * The class for storing information about signature of method, variable, class and so on...
+ * In fact, many symbols have signature information.
+ * In Java, for example, the package, class, method, field...
+ * In C++, for example, the namespace, class, function, variable...
+ * ...
  * @author Scave
  */
 public class SignatureInfo {
 
     /**
-     * 标签
+     * The label of signature
      */
     public String label;
     /**
-     * 内容
+     * The content which was marked
      */
     public MarkupContent content;
     /**
-     * 参数信息
+     * The parameter information of signature
      */
     public List<ParameterInfo> parameters;
 

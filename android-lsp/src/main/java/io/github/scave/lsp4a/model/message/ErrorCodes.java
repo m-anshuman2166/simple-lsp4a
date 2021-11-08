@@ -1,7 +1,7 @@
-package io.github.scave.lsp4a.model.common;
+package io.github.scave.lsp4a.model.message;
 
 /**
- * The codes of errors
+ * The class define codes of errors
  * @author Scave
  */
 public class ErrorCodes {

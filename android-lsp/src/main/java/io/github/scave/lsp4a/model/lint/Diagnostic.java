@@ -1,33 +1,38 @@
 package io.github.scave.lsp4a.model.lint;
 
-import com.tiecode.protocol.lang.model.common.Range;
-
 import java.util.List;
 
+import io.github.scave.lsp4a.model.common.Range;
+
 /**
- * 诊断信息类
+ * The class for storing information about diagnostic in the text document
  * @author Scave
  */
 public class Diagnostic {
     /**
-     * 诊断范围
+     * The range of the diagnostic
      */
     public Range range;
     /**
-     * 诊断程度
+     * The severity of the diagnostic
+     * @see DiagnosticSeverity
      */
     public Integer severity;
     /**
-     * 代码
+     * The code of the diagnostic
      */
     public String code;
     /**
-     * 源代码
+     * The source of the diagnostic
      */
     public String source;
     /**
-     * 诊断信息
+     * The message of the diagnostic
      */
     public String message;
+    /**
+     * The tags of diagnostic
+     * @see DiagnosticTag
+     */
     public List<Integer> tags;
 }

@@ -1,16 +1,16 @@
 package io.github.scave.lsp4a.model.message;
 
 /**
- * 请求信息类
+ * The class store params for request while the language client posted
  * @author Scave
  */
 public class RequestMessage {
     /**
-     * 请求ID
+     * The id of request
      */
     public String id;
     /**
-     * 请求信息
+     * The message of request
      */
     public String message;
 }

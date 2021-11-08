@@ -1,25 +1,31 @@
 package io.github.scave.lsp4a.server;
 
+import io.github.scave.lsp4a.model.action.DidChangeConfigurationParams;
+import io.github.scave.lsp4a.model.action.DidOpenTextDocumentParams;
+import io.github.scave.lsp4a.model.lifecycle.InitializeParams;
+import io.github.scave.lsp4a.model.lifecycle.InitializeResult;
+
 /**
- * 语言服务接口类
+ * The base class of all language servers
+ * In other words, all of the language servers must implements this interface!
  * @author Scave
  */
 public interface LanguageServer {
 
     /**
-     * 初始化语言服务
-     * @param params 初始化参数
-     * @return 返回初始化结果
+     * Initialize the language server
+     * @param params The params of initializing
+     * @return The result of initializing
      */
     InitializeResult initialize(InitializeParams params);
 
     /**
-     * 初始化完毕
+     * This method will be called after the language server initialized
      */
     void initialized();
 
     /**
-     * 服务关闭
+     * This method will be called after the language server closed
      */
     void shutdown();
 

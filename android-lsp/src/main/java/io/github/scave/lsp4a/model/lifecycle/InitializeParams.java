@@ -6,33 +6,33 @@ import java.util.List;
 import io.github.scave.lsp4a.model.workspace.WorkspaceFolder;
 
 /**
- * 初始化参数信息类
+ * The class for storing params for initializing while language client posted
  * @author Scave
  */
 public class InitializeParams {
 
     /**
-     * 进程ID
+     * The process id of initializing
      */
     public int processId;
     /**
-     * 根路径
+     * The root path of initializing
      */
     public String rootPath;
     /**
-     * 根URI
+     * The root URI of initializing
      */
     public URI rootUri;
     /**
-     * 初始化参数
+     * The options of initializing
      */
     public InitializeOptions options;
     /**
-     * 信息
+     * The trace of initializing
      */
     public String trace;
     /**
-     * 工程所有文件夹
+     * The workspace folders of initializing
      */
     public List<WorkspaceFolder> workspaceFolders;
 }

@@ -3,21 +3,21 @@ package io.github.scave.lsp4a.model.signature;
 import java.util.List;
 
 /**
- * 签名帮助
+ * The class for storing signature helps
  * @author Scave
  */
 public class SignatureHelp {
 
     /**
-     * 签名信息集合
+     * The signature information
      */
     public List<SignatureInfo> signatures;
     /**
-     * 当前签名信息
+     * The index of active signature
      */
     public Integer activeSignature;
     /**
-     * 当前光标所处参数
+     * The index of active parameter
      */
     public Integer activeParameter;
 }

@@ -1,18 +1,18 @@
 package io.github.scave.lsp4a.model.markup;
 
 /**
- * 标记文本类
+ * The class store information about marked string text
  * @author Scave
  */
 public class MarkedString {
 
     /**
-     * 语言
+     * The language of current marked string
      */
     public String language;
 
     /**
-     * 文本值
+     * The value of marked string
      */
     public String value;
 

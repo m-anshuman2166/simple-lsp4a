@@ -1,24 +1,24 @@
 package io.github.scave.lsp4a.model.lint;
 
 /**
- * 诊断信息严重程度
+ * The class define severities of diagnostics
  * @author Scave
  */
 public class DiagnosticSeverity {
     /**
-     * 必须给出错误
+     * The severity has reached the error level
      */
-    public static final int ERROR = 1;
+    public static final int ERROR = 4;
     /**
-     * 必须给出警告
+     * The severity has reached the warning level
      */
-    public static final int WARNING = 1;
+    public static final int WARNING = 3;
     /**
-     * 必须给出信息
+     * The severity has reached the info level
      */
-    public static final int INFO = 1;
+    public static final int INFO = 2;
     /**
-     * 必须给出过时API处理
+     * The severity has reached the hint level
      */
     public static final int HINT = 1;
 }

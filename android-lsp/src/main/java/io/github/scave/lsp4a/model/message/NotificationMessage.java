@@ -1,15 +1,15 @@
 package io.github.scave.lsp4a.model.message;
 
 /**
- * 通知信息
+ * The class store information about a notification message
  */
 public class NotificationMessage {
     /**
-     * 方法
+     * The method name
      */
     public String method;
     /**
-     * 参数
+     * The params of message
      */
     public String params;
 }

@@ -1,17 +1,18 @@
 package io.github.scave.lsp4a.model.markup;
 
 /**
- * 标记内容
+ * The class store information about markup content
  * @author Scave
  */
 public class MarkupContent {
 
     /**
-     * 类型
+     * The kind of markup
+     * @see MarkupKind
      */
     public String kind;
     /**
-     * 值
+     * The value of markup
      */
     public String value;
 

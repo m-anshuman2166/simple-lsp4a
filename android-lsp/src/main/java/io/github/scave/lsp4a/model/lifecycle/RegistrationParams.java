@@ -1,12 +1,16 @@
 package io.github.scave.lsp4a.model.lifecycle;
 
+/**
+ * The class store params of registration while language client posted
+ * @author Scave
+ */
 public class RegistrationParams {
     /**
      * ID
      */
     public String id;
     /**
-     * 方法名称
+     * The method name of registration
      */
     public String method;
 }

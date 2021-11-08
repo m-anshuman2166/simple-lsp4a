@@ -1,11 +1,17 @@
 package io.github.scave.lsp4a.model.message;
 
 /**
- * 显示信息参数信息类
+ * The class store params for message which will be show in client
  * @author Scave
  */
 public class ShowMessageParams {
 
+    /**
+     * The message type
+     */
     public int type;
+    /**
+     * The message
+     */
     public String message;
 }

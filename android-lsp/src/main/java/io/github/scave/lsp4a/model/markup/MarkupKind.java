@@ -1,17 +1,17 @@
 package io.github.scave.lsp4a.model.markup;
 
 /**
- * 标记类型
+ * The class define kinds of markup content
  * @author Scave
  */
 public class MarkupKind {
 
     /**
-     * 普通文本
+     * The markup content is plain text
      */
     public static final String PLAINTEXT = "plaintext";
     /**
-     * md
+     * The markup content is markdown
      */
     public static final String MARKDOWN = "markdown";
 }

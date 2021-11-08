@@ -1,24 +1,20 @@
 package io.github.scave.lsp4a.model.message;
 
 /**
- * 信息实体类
+ * The class for storing some messages
  * @author Scave
  */
 public class Message {
     /**
-     * JSON头
-     */
-    public String jsonrpc;
-    /**
-     * 请求ID
+     * The id of request
      */
     public Integer id;
     /**
-     * 方法
+     * The method name of request
      */
     public String method;
     /**
-     * 参数
+     * The params of request
      */
     public String params;
 }

@@ -1,22 +1,20 @@
-package io.github.scave.lsp4a.model.message;
-
-import com.tiecode.protocol.lang.model.lint.Diagnostic;
+package io.github.scave.lsp4a.model.lint;
 
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 发送诊断信息参数类
+ * The class store params for diagnostics while the language server send message to client
  * @author Scave
  */
 public class PublishDiagnosticsParams {
     /**
-     * 文本文档URI标识
+     * The URI of target text document which will receive diagnostics
      */
     public URI uri;
     /**
-     * 诊断信息集合
+     * The diagnostics
      */
     public List<Diagnostic> diagnostics;
 

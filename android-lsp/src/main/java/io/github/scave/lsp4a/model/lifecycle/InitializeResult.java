@@ -1,7 +1,7 @@
 package io.github.scave.lsp4a.model.lifecycle;
 
 /**
- * 初始化结果信息类
+ * The class for storing result of initializing after the language server initialized
  * @author Scave
  */
 public class InitializeResult {

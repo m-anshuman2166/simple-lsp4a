@@ -1,18 +1,18 @@
 package io.github.scave.lsp4a.model.rename;
 
-import com.tiecode.protocol.lang.model.common.Range;
+import io.github.scave.lsp4a.model.common.Range;
 
 /**
- * 重命名信息类
+ * The class store the information about renaming response
  * @author Scave
  */
 public class RenameResponse {
     /**
-     * 重命名范围
+     * The range of renaming
      */
     public Range range;
     /**
-     * 替换文本
+     * The place holder of renaming
      */
     public String placeholder;
 }

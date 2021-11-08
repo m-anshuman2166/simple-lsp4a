@@ -1,20 +1,20 @@
 package io.github.scave.lsp4a.model.signature;
 
-import com.tiecode.protocol.lang.model.markup.MarkupContent;
+import io.github.scave.lsp4a.model.markup.MarkupContent;
 
 /**
- * 参数信息
+ * The class store information of a parameter
  * @author Scave
  */
 public class ParameterInfo {
 
     /**
-     * 标签
+     * The label of parameter
      */
     public String label;
 
     /**
-     * 标记内容
+     * The markup content of parameter
      */
     public MarkupContent content;
 

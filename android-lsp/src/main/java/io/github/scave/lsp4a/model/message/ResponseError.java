@@ -1,21 +1,22 @@
 package io.github.scave.lsp4a.model.message;
 
 /**
- * 返回错误信息类
+ * The class for storing information about an error
  * @author Scave
  */
 public class ResponseError {
 
     /**
-     * 错误代码
+     * The code of error
+     * @see ErrorCodes
      */
     public int code;
     /**
-     * 错误信息
+     * The message of error
      */
     public String message;
     /**
-     * 数据
+     * The data of error
      */
     public Object data;
 

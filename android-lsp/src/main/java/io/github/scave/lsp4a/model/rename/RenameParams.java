@@ -1,23 +1,23 @@
 package io.github.scave.lsp4a.model.rename;
 
-import com.tiecode.protocol.lang.model.common.Position;
-import com.tiecode.protocol.lang.model.document.TextDocumentIdentifier;
+import io.github.scave.lsp4a.model.common.Position;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 
 /**
- * 重命名操作参数
+ * The class store params of renaming operation while the language client posted
  * @author Scave
  */
 public class RenameParams {
     /**
-     * 文本文档唯一标识
+     * The only identifier of text document(URI)
      */
     public TextDocumentIdentifier document;
     /**
-     * 重命名位置
+     * The position of renaming operation
      */
     public Position position;
     /**
-     * 重命名后名称
+     * The new name for renaming
      */
     public String newName;
 }

@@ -1,9 +1,9 @@
 package io.github.scave.lsp4a.model.folding;
 
-import com.tiecode.protocol.lang.model.document.TextDocumentIdentifier;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 
 /**
- * 代码折叠区域参数
+ * The class for storing params for folding range while language client posted
  * @author Scave
  */
 public class FoldingRangeParams {

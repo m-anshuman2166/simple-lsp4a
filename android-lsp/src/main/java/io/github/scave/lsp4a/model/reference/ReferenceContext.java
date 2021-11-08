@@ -1,13 +1,13 @@
 package io.github.scave.lsp4a.model.reference;
 
 /**
- * 成员引用上下文信息类
+ * The class for storing context of reference
  * @author Scave
  */
 public class ReferenceContext {
 
     /**
-     * 是否包含定义
+     * Whether the reference include declaration
      */
     public boolean includeDeclaration;
 }

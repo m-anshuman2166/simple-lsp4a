@@ -1,4 +1,9 @@
 package io.github.scave.lsp4a.client;
 
-public class LanguageClient {
+/**
+ * The base class of all language clients.
+ * In other words, all of the language clients must implements this interface
+ * @author Scave
+ */
+public interface LanguageClient {
 }
