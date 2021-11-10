@@ -1,9 +1,41 @@
 package io.github.scave.lsp4a.server;
 
+import java.util.List;
+import java.util.Optional;
+
 import io.github.scave.lsp4a.model.action.DidChangeConfigurationParams;
+import io.github.scave.lsp4a.model.action.DidChangeTextDocumentParams;
+import io.github.scave.lsp4a.model.action.DidChangeWatchedFilesParams;
+import io.github.scave.lsp4a.model.action.DidChangeWorkspaceFoldersParams;
+import io.github.scave.lsp4a.model.action.DidCloseTextDocumentParams;
 import io.github.scave.lsp4a.model.action.DidOpenTextDocumentParams;
+import io.github.scave.lsp4a.model.action.DidSaveTextDocumentParams;
+import io.github.scave.lsp4a.model.code.CodeAction;
+import io.github.scave.lsp4a.model.code.CodeActionParams;
+import io.github.scave.lsp4a.model.code.CodeLens;
+import io.github.scave.lsp4a.model.code.CodeLensParams;
+import io.github.scave.lsp4a.model.common.Location;
+import io.github.scave.lsp4a.model.completion.CompletionItem;
+import io.github.scave.lsp4a.model.completion.CompletionResult;
+import io.github.scave.lsp4a.model.document.TextDocumentPositionParams;
+import io.github.scave.lsp4a.model.document.formatting.DocumentFormattingParams;
+import io.github.scave.lsp4a.model.document.link.DocumentLink;
+import io.github.scave.lsp4a.model.document.link.DocumentLinkParams;
+import io.github.scave.lsp4a.model.document.modify.TextEdit;
+import io.github.scave.lsp4a.model.document.save.WillSaveTextDocumentParams;
+import io.github.scave.lsp4a.model.document.symbol.DocumentSymbolParams;
+import io.github.scave.lsp4a.model.folding.FoldingRange;
+import io.github.scave.lsp4a.model.folding.FoldingRangeParams;
 import io.github.scave.lsp4a.model.lifecycle.InitializeParams;
 import io.github.scave.lsp4a.model.lifecycle.InitializeResult;
+import io.github.scave.lsp4a.model.markup.Hover;
+import io.github.scave.lsp4a.model.reference.ReferenceParams;
+import io.github.scave.lsp4a.model.rename.RenameParams;
+import io.github.scave.lsp4a.model.rename.RenameResponse;
+import io.github.scave.lsp4a.model.signature.SignatureHelp;
+import io.github.scave.lsp4a.model.symbol.SymbolInfo;
+import io.github.scave.lsp4a.model.workspace.WorkspaceEdit;
+import io.github.scave.lsp4a.model.workspace.WorkspaceSymbolParams;
 
 /**
  * The base class of all language servers
@@ -30,33 +62,34 @@ public interface LanguageServer {
     void shutdown();
 
     /**
-     * 通知已经完成配置信息变更
-     * @param params 变更配置信息
+     * Notify the server that the configuration was changed
+     * @param params The params of changed configuration
      */
     void didChangeConfiguration(DidChangeConfigurationParams params);
 
     /**
-     * 通知已打开文本文档
-     * @param params 打开文本文档参数信息
+     * Notify the server that a text document was opened
+     * @param params The params of opened text document
      */
     void didOpenTextDocument(DidOpenTextDocumentParams params);
 
     /**
-     * 通知已经完成文本文档内容变更
-     * @param params 内容变更信息
+     * Notify the server that a text document's content has been changed
+     * @param params The params of a text document which was changed
      */
     void didChangeTextDocument(DidChangeTextDocumentParams params);
 
     /**
-     * 通知即将保存文本文档
-     * @param params 即将保存文本文档参数信息
+     * Notify the server that a text document will be saved
+     * @param params The params of a text document which will be saved
      */
     void willSaveTextDocument(WillSaveTextDocumentParams params);
 
     /**
-     * 通知即将保存文本文档
-     * @param params 即将保存文本文档参数信息
-     * @return 返回已变更的文本信息
+     * Notify the server that a text document will be saved
+     *   but still wait for text editions of the document
+     * @param params The params of a text document which will be saved
+     * @return The text editions for document
      */
     List<TextEdit> willSaveWaitUntilTextDocument(WillSaveTextDocumentParams params);
 
@@ -67,122 +100,127 @@ public interface LanguageServer {
     void didSaveTextDocument(DidSaveTextDocumentParams params);
 
     /**
-     * 通知已关闭文本文档
-     * @param params 已关闭文本文档参数信息
+     * Notify the server that a text document has been saved
+     * @param params The params of a text document which has been saved
      */
     void didCloseTextDocument(DidCloseTextDocumentParams params);
 
     /**
-     * 通知监听的文件已变更
-     * @param params 被监听文件的变更参数信息
+     * Notify the server that the files which were watched has been changed
+     * @param params The params of changed files
      */
     void didChangeWatchedFiles(DidChangeWatchedFilesParams params);
 
     /**
-     * 通知需要返回代码提示
-     * @param params 当前所处文本文档的位置参数信息
-     */
-    Optional<CompletionResult> completion(TextDocumentPositionParams params);
-
-    /**
-     * 通知需要对代码提示项进行判定和变更后返回代码提示项
-     * @param item 欲处理的代码提示项
-     */
-    CompletionItem resolveCompletionItem(CompletionItem item);
-
-    /**
-     * 通知鼠标移动到文本上，需要返回被鼠标指定的内容
-     * @param params 当前所处文本文档的位置参数信息
-     */
-    Optional<Hover> hover(TextDocumentPositionParams params);
-
-    /**
-     * 通知需要返回函数、变量等成员的签名信息
-     * @param params 当前所处文本文档的位置参数信息
-     */
-    Optional<SignatureHelp> signatureHelp(TextDocumentPositionParams params);
-
-    /**
-     * 通知需要返回引用成员的定义位置信息集合（多个定义，如虚拟方法、.h和.cpp内分别定义和实现等）
-     * @param params 当前所处文本文档的位置参数信息
-     */
-    Optional<List<Location>> gotoDefinition(TextDocumentPositionParams params);
-
-    /**
-     * 通知需要返回某个成员被引用处位置信息集合
-     * @param params 成员引用参数信息
-     */
-    Optional<List<Location>> findReferences(ReferenceParams params);
-
-    /**
-     * 通知需要返回指定文本文档的符号信息集合
-     * @param params 文本文档请求符号信息参数
-     */
-    List<SymbolInfo> documentSymbol(DocumentSymbolParams params);
-
-    /**
-     * 通知需要返回指定工作区（文件夹等）符号信息集合
-     * @param params 当前所处工作区的位置参数信息
-     */
-    List<SymbolInfo> workspaceSymbols(WorkspaceSymbolParams params);
-
-    /**
-     * 通知需要返回指定文档区域的代码操作（如自动修复，导入类等）集合
-     * @param params 请求返回代码操作的参数信息
-     */
-    List<CodeAction> codeAction(CodeActionParams params);
-
-    /**
-     * 通知需要返回指定文档的代码长度信息集合
-     * @param params 请求返回代码长度信息的参数信息
-     */
-    List<CodeLens> codeLens(CodeLensParams params);
-
-    /**
-     * 通知需要对代码长度信息进行判定和变更后返回代码长度信息
-     * @param params 欲处理的代码长度信息
-     */
-    CodeLens resolveCodeLens(CodeLens params);
-
-    /**
-     * 通知需要准备进行重命名操作
-     * @param params 当前文本文档用户指定所处位置信息
-     * @return 返回重命名后的信息
-     */
-    Optional<RenameResponse> prepareRename(TextDocumentPositionParams params);
-
-    /**
-     * 通知进行重命名操作
-     * @param params 重命名请求的参数信息
-     */
-    WorkspaceEdit rename(RenameParams params);
-
-    /**
-     * 通知工作区文件夹已经变更
-     * @param params 工作区文件夹变更请求的参数信息
+     * Notify the server that a workspace folder has been changed
+     * @param params The params of a workspace folder which has been changed
      */
     void didChangeWorkspaceFolders(DidChangeWorkspaceFoldersParams params);
 
     /**
-     * 请求格式化文本文档并返回进行格式化操作后的文本内容变更信息（文本位置）
-     * @param params 请求格式化操作的文档格式化参数信息
+     * Notify the server should return completion result for user now
+     * @param params The params of current position in specified text document
+     */
+    Optional<CompletionResult> completion(TextDocumentPositionParams params);
+
+    /**
+     * Notify the server should resolve the completion item is correct
+     * @param item The completion item which will be resolved
+     */
+    CompletionItem resolveCompletionItem(CompletionItem item);
+
+    /**
+     * Notify the server that the mouse has hovered on marked content
+     * @param params The params of current position in specific text document
+     */
+    Optional<Hover> hover(TextDocumentPositionParams params);
+
+    /**
+     * Notify the server should return specific signature of symbol
+     * @param params The params of current position in specified text document
+     */
+    Optional<SignatureHelp> signatureHelp(TextDocumentPositionParams params);
+
+    /**
+     * Notify the server should return locations of specific symbol's definition
+     * A symbol, such as method maybe has many definitions(Override method in Java)
+     * Or it can be definition and implements in C++
+     * ...
+     * @param params The params of current position in specified text document
+     */
+    Optional<List<Location>> gotoDefinition(TextDocumentPositionParams params);
+
+    /**
+     * Notify the server should return locations of specific symbol's references
+     * A symbol, such as variable, it can be referenced more than once
+     * @param params The params of reference, it contains position information and reference context
+     */
+    Optional<List<Location>> findReferences(ReferenceParams params);
+
+    /**
+     * Notify the server should return symbol information of a text document
+     * @param params The params of a specific text document
+     */
+    List<SymbolInfo> documentSymbol(DocumentSymbolParams params);
+
+    /**
+     * Notify the server should return symbol information of a workspace folder
+     * @param params The params of a specific workspace folder
+     */
+    List<SymbolInfo> workspaceSymbols(WorkspaceSymbolParams params);
+
+    /**
+     * Notify the server should return accessible actions of specific code
+     * For example, auto import, auto fixing
+     * @param params The params of code action request
+     */
+    List<CodeAction> codeAction(CodeActionParams params);
+
+    /**
+     * Notify the server should return code length of specific text document
+     * @param params The params of code length request, it contains a only identifier of text document
+     */
+    List<CodeLens> codeLens(CodeLensParams params);
+
+    /**
+     * Notify the server should resolve a code length model
+     * @param params The instance of CodeLens
+     */
+    CodeLens resolveCodeLens(CodeLens params);
+
+    /**
+     * Notify the server should prepare to rename symbol in a text document
+     * @param params The params of current position in text document
+     * @return The information after prepared
+     */
+    Optional<RenameResponse> prepareRename(TextDocumentPositionParams params);
+
+    /**
+     * Notify the server should rename a specific symbol
+     * @param params The params of renaming operation
+     */
+    WorkspaceEdit rename(RenameParams params);
+
+    /**
+     * Notify the server should format specific text document
+     * @param params The params of formatting, it contains the identifier of document and formatting options
      */
     List<TextEdit> formatting(DocumentFormattingParams params);
 
     /**
-     * 通知需要返回指定文本文档的代码折叠区域信息
-     * @param params 请求代码折叠区域信息的参数信息
+     * Notify the server should return the folding range in a specific text document
+     * @param params The params of folding range request
      */
     List<FoldingRange> foldingRange(FoldingRangeParams params);
 
     /**
-     * 通知需要返回指定文本文档的文档内超链接的信息集合
-     * @param params 请求返回超链接集合的参数信息
+     * Notify the server should return the links in a text document
+     * @param params The params of document links request
      */
     List<DocumentLink> documentLink(DocumentLinkParams params);
 
     /**
-     * 请求需要进行指定的异步任务，通常将耗时操作写在此处（如代码查错等）
+     * Do some async work, for example, compile source, lint...
      */
     void doAsyncWork();
 }
