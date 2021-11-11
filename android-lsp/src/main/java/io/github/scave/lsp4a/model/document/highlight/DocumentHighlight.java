@@ -14,6 +14,10 @@ public class DocumentHighlight {
      */
     public Range range;
     /**
+     * The color of highlight
+     */
+    public int color;
+    /**
      * The kind of the highlight
      */
     public int kind;

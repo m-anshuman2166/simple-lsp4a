@@ -1,7 +1,6 @@
 package io.github.scave.lsp4a.server;
 
 import java.util.List;
-import java.util.Optional;
 
 import io.github.scave.lsp4a.model.action.DidChangeConfigurationParams;
 import io.github.scave.lsp4a.model.action.DidChangeTextDocumentParams;
@@ -17,8 +16,12 @@ import io.github.scave.lsp4a.model.code.CodeLensParams;
 import io.github.scave.lsp4a.model.common.Location;
 import io.github.scave.lsp4a.model.completion.CompletionItem;
 import io.github.scave.lsp4a.model.completion.CompletionResult;
+import io.github.scave.lsp4a.model.document.TextDocumentIdentifier;
 import io.github.scave.lsp4a.model.document.TextDocumentPositionParams;
 import io.github.scave.lsp4a.model.document.formatting.DocumentFormattingParams;
+import io.github.scave.lsp4a.model.document.highlight.DocumentHighlight;
+import io.github.scave.lsp4a.model.document.highlight.DocumentHighlightParams;
+import io.github.scave.lsp4a.model.document.indent.DocumentIndentParams;
 import io.github.scave.lsp4a.model.document.link.DocumentLink;
 import io.github.scave.lsp4a.model.document.link.DocumentLinkParams;
 import io.github.scave.lsp4a.model.document.modify.TextEdit;
@@ -36,6 +39,7 @@ import io.github.scave.lsp4a.model.signature.SignatureHelp;
 import io.github.scave.lsp4a.model.symbol.SymbolInfo;
 import io.github.scave.lsp4a.model.workspace.WorkspaceEdit;
 import io.github.scave.lsp4a.model.workspace.WorkspaceSymbolParams;
+import io.github.scave.lsp4a.util.Optional;
 
 /**
  * The base class of all language servers
@@ -206,6 +210,18 @@ public interface LanguageServer {
      * @param params The params of formatting, it contains the identifier of document and formatting options
      */
     List<TextEdit> formatting(DocumentFormattingParams params);
+
+    /**
+     * Notify the server should indent for specific position in the text document
+     * @param params The params of indent, it contains the identifier of document and indent options
+     */
+    List<TextEdit> indent(DocumentIndentParams params);
+
+    /**
+     * Notify the server should return the highlights in a specific text document
+     * @param params The params of document highlight request
+     */
+    List<DocumentHighlight> highlight(DocumentHighlightParams params);
 
     /**
      * Notify the server should return the folding range in a specific text document
